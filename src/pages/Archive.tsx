@@ -1,5 +1,11 @@
+import Layout from '../components/Layout.tsx';
+
 const Archive = () => {
-    return <h1>Archive</h1>;
+    return (
+        <Layout pageName={'Arkivet'}>
+            <p>{'Dette er arkivet'}</p>
+        </Layout>
+    );
 };
 
 export default Archive;

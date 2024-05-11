@@ -1,5 +1,11 @@
+import Layout from '../components/Layout.tsx';
+
 const Articles = () => {
-    return <h1>Articles</h1>;
+    return (
+        <Layout pageName={'Artikler'}>
+            <p>Dette er hvor artiklene skal være</p>
+        </Layout>
+    );
 };
 
 export default Articles;

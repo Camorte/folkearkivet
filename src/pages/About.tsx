@@ -1,5 +1,11 @@
+import Layout from '../components/Layout.tsx';
+
 const About = () => {
-    return <h1>About</h1>;
+    return (
+        <Layout pageName="Om oss">
+            <p>Dette er en side om oss</p>
+        </Layout>
+    );
 };
 
 export default About;

@@ -1,5 +1,13 @@
+import Layout from '../components/Layout.tsx';
+
 function Home() {
-    return <h1>Folkearkivet</h1>;
+    return (
+        <Layout>
+            <div>
+                <p>Dette er landingssiden</p>
+            </div>
+        </Layout>
+    );
 }
 
 export default Home;
