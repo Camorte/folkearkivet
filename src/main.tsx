@@ -12,27 +12,29 @@ import Articles from './pages/Articles.tsx';
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Home />
-    },
-    {
-        path: '/arkivet',
-        element: <Archive />
-    },
-    {
-        path: '/om-oss',
-        element: <About />
-    },
-    {
-        path: '/kontakt-oss',
-        element: <Contact />
-    },
-    {
-        path: '/utstillinger',
-        element: <Galleries />
-    },
-    {
-        path: '/artikler',
-        element: <Articles />
+        children: [
+            { path: '', element: <Home /> },
+            {
+                path: '/arkivet',
+                element: <Archive />
+            },
+            {
+                path: '/om-oss',
+                element: <About />
+            },
+            {
+                path: '/kontakt-oss',
+                element: <Contact />
+            },
+            {
+                path: '/utstillinger',
+                element: <Galleries />
+            },
+            {
+                path: '/artikler',
+                element: <Articles />
+            }
+        ]
     }
 ]);
 
