@@ -37,6 +37,12 @@ code {
     }
 
     p {
-        @apply text-3xl my-2 font-[300] w-fit;
+        @apply text-xl my-2 font-[300] w-fit;
+    }
+}
+
+@layer components {
+    .container {
+        @apply py-[2vh] px-[2vw] flex flex-col max-w-full w-full h-full overflow-y-auto;
     }
 }
