@@ -8,10 +8,12 @@ import About from './pages/About.tsx';
 import Contact from './pages/Contact.tsx';
 import Galleries from './pages/Galleries.tsx';
 import Articles from './pages/Articles.tsx';
+import ErrorPage from './pages/ErrorPage.tsx';
 
 const router = createBrowserRouter([
     {
         path: '/',
+        errorElement: <ErrorPage />,
         children: [
             { path: '', element: <Home /> },
             {
