@@ -1,5 +1,5 @@
-function App() {
-    return <h1 className="text-3xl font-bold underline">Folkearkivet</h1>;
+function Home() {
+    return <h1>Folkearkivet</h1>;
 }
 
-export default App;
+export default Home;
