@@ -4,16 +4,18 @@ const NavLinks = [
     { name: 'Arkivet', path: '/arkivet' },
     { name: 'Utstillinger', path: '/utstillinger' },
     { name: 'Artikler', path: '/artikler' },
-    { name: 'Om oss', path: '/om-oss' },
-    { name: 'Kontakt oss', path: '/kontakt-oss' }
+    { name: 'Biografi', path: '/biografi' },
+    { name: 'Kontakt', path: '/kontakt' }
 ];
 
 const Navbar = () => {
     return (
-        <ul>
+        <ul className="flex flex-row gap-x-8">
             {NavLinks.map((nav) => (
-                <li id={`navlink-${nav.name}`}>
-                    <Link to={nav.path}>{nav.name}</Link>
+                <li key={`navlink-${nav.name}`}>
+                    <Link className="hover:underline" to={nav.path}>
+                        <p>{nav.name}</p>
+                    </Link>
                 </li>
             ))}
         </ul>

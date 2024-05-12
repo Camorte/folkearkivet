@@ -2,7 +2,7 @@ import Layout from '../components/Layout.tsx';
 
 const Galleries = () => {
     return (
-        <Layout pageName={'Utstillinger'}>
+        <Layout>
             <p>{'Dette er hvor utstillingene skal listes'}</p>
         </Layout>
     );

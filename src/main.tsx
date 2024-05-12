@@ -7,8 +7,9 @@ import Archive from './pages/Archive.tsx';
 import About from './pages/About.tsx';
 import Contact from './pages/Contact.tsx';
 import Galleries from './pages/Galleries.tsx';
-import Articles from './pages/Articles.tsx';
+import ArticlesOverview from './pages/ArticlesOverview.tsx';
 import ErrorPage from './pages/ErrorPage.tsx';
+import Article from './pages/Article.tsx';
 
 const router = createBrowserRouter([
     {
@@ -21,11 +22,11 @@ const router = createBrowserRouter([
                 element: <Archive />
             },
             {
-                path: '/om-oss',
+                path: '/biografi',
                 element: <About />
             },
             {
-                path: '/kontakt-oss',
+                path: '/kontakt',
                 element: <Contact />
             },
             {
@@ -34,7 +35,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/artikler',
-                element: <Articles />
+                element: <ArticlesOverview />
+            },
+            {
+                path: '/artikler/:article',
+                element: <Article />
             }
         ]
     }
