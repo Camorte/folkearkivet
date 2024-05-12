@@ -10,8 +10,24 @@ export const client = createClient({
 });
 
 export async function getContributions() {
+    return await client.fetch('*[_type == "contribution"]{_id, image, title }');
+}
+
+export async function getContribution(id: string) {
     return await client.fetch(
-        '*[_type == "contribution"]{title, image, description}'
+        `*[_type == "contribution" && _id=="${id}"][0]{_id, title, image, description, location, category}`
+    );
+}
+
+export async function getProgram() {
+    return await client.fetch(
+        '*[_type == "event"]{title, eventSlug, description, info, "image": content[_type == "image"][0]{...}}'
+    );
+}
+
+export async function getEvent(eventSlug: string) {
+    return client.fetch(
+        `*[_type=="event" && eventSlug.current=="${eventSlug}"][0]{title, eventSlug, content}`
     );
 }
 

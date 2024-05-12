@@ -40,7 +40,7 @@ const structure: StructureToolOptions = (S: StructureBuilder) =>
                 by: [{field: 'location', direction: 'desc'}],
               }),
             ])
-            .title('Future projects')
+            .title('Bidrag')
             .filter('_type == "contribution"'),
         ),
       S.listItem()
@@ -51,6 +51,10 @@ const structure: StructureToolOptions = (S: StructureBuilder) =>
         .title('Kontakt')
         .schemaType('contact')
         .child(S.document().schemaType('contact').documentId('contact')),
+      S.listItem()
+        .title('Program')
+        .schemaType('event')
+        .child(S.documentList().title('Arrangementer').filter('_type == "event"')),
     ])
 
 export default structure

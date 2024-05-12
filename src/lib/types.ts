@@ -1,9 +1,18 @@
 import { SanityImageAssetDocument } from '@sanity/client';
 import { PortableTextBlock } from '@portabletext/types';
 
+export type ContributionOverview = {
+    _id: string;
+    title: string;
+    image: SanityImageAssetDocument;
+};
+
 export type Contribution = {
+    _id: string;
     title: string;
     description: string;
+    category: string;
+    location: string;
     src: string;
     image: SanityImageAssetDocument;
 };
@@ -25,5 +34,19 @@ export type Article = {
 
 export type StandardArticle = {
     title: string;
+    content: PortableTextBlock;
+};
+
+export type ProgramOverview = {
+    title: string;
+    info: string;
+    description: string;
+    eventSlug: SanitySlug;
+    image?: SanityImageAssetDocument;
+};
+
+export type Event = {
+    title: string;
+    eventSlug: SanitySlug;
     content: PortableTextBlock;
 };
