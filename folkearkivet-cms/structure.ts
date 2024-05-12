@@ -12,7 +12,37 @@ const structure: StructureToolOptions = (S: StructureBuilder) =>
       S.listItem()
         .title('Bidrag')
         .schemaType('contribution')
-        .child(S.documentList().title('Future projects').filter('_type == "contribution"')),
+        .child(
+          S.documentList()
+            .menuItems([
+              S.orderingMenuItem({
+                title: 'Tittel stigende',
+                by: [{field: 'Tittel', direction: 'asc'}],
+              }),
+              S.orderingMenuItem({
+                title: 'Tittel sykende',
+                by: [{field: 'title', direction: 'desc'}],
+              }),
+              S.orderingMenuItem({
+                title: 'Kategori stigende',
+                by: [{field: 'category', direction: 'asc'}],
+              }),
+              S.orderingMenuItem({
+                title: 'Kategori sykende',
+                by: [{field: 'category', direction: 'desc'}],
+              }),
+              S.orderingMenuItem({
+                title: 'Sted stigende',
+                by: [{field: 'location', direction: 'asc'}],
+              }),
+              S.orderingMenuItem({
+                title: 'Sted sykende',
+                by: [{field: 'location', direction: 'desc'}],
+              }),
+            ])
+            .title('Future projects')
+            .filter('_type == "contribution"'),
+        ),
       S.listItem()
         .title('Biografi')
         .schemaType('biography')

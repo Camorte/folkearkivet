@@ -10,18 +10,15 @@ export const client = createClient({
 });
 
 export async function getContributions() {
-    const contributions = await client.fetch(
+    return await client.fetch(
         '*[_type == "contribution"]{title, image, description}'
     );
-    return contributions;
 }
 
 export async function getArticles() {
-    const articles = await client.fetch(
+    return await client.fetch(
         '*[_type == "article"]{articleTitle, articleSlug, articleDescription, "articleImage": content[_type == "image"][0]{...}}'
     );
-
-    return articles;
 }
 
 export async function getArticle(articleSlug: string) {

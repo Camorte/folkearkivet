@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Archive from './pages/Archive.tsx';
 import About from './pages/About.tsx';
 import Contact from './pages/Contact.tsx';
-import Galleries from './pages/Galleries.tsx';
+import Program from './pages/Program.tsx';
 import ArticlesOverview from './pages/ArticlesOverview.tsx';
 import ErrorPage from './pages/ErrorPage.tsx';
 import Article from './pages/Article.tsx';
@@ -30,8 +30,8 @@ const router = createBrowserRouter([
                 element: <Contact />
             },
             {
-                path: '/utstillinger',
-                element: <Galleries />
+                path: '/program',
+                element: <Program />
             },
             {
                 path: '/artikler',

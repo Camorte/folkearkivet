@@ -4,6 +4,7 @@ import { PortableTextBlock } from '@portabletext/types';
 export type Contribution = {
     title: string;
     description: string;
+    src: string;
     image: SanityImageAssetDocument;
 };
 

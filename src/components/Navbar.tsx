@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 const NavLinks = [
     { name: 'Arkivet', path: '/arkivet' },
-    { name: 'Utstillinger', path: '/utstillinger' },
+    { name: 'Program', path: '/program' },
     { name: 'Artikler', path: '/artikler' },
     { name: 'Biografi', path: '/biografi' },
     { name: 'Kontakt', path: '/kontakt' }

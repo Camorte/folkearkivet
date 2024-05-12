@@ -13,6 +13,7 @@ const Archive = () => {
         getContributions()
             .then((data: Contribution[]) => {
                 setArchive(data);
+                console.log(data);
             })
             .catch((error) => {
                 console.log(error);
@@ -21,25 +22,17 @@ const Archive = () => {
 
     return (
         <Layout>
-            <ul className="flex flex-col gap-y-8">
+            <ul className="grid grid-cols-4 grid-flow-dense auto-rows-auto gap-[6px]">
                 {archive.map((contribution, index) => (
                     <li
                         key={contribution.title + '-' + index}
-                        className="grid grid-cols-3 hover:cursor-pointer w-full"
-                        onClick={() => {
-                            setSelectedContribution(contribution);
-                            setShowContribution(true);
-                        }}
+                        className="row-[span_2/auto] col-span-[span_2/auto]"
                     >
                         <img
-                            src={urlFor(contribution.image)
-                                .width(800)
-                                .height(600)
-                                .url()}
+                            className="object-fit"
+                            src={urlFor(contribution.image).url()}
                             alt={contribution.title}
                         />
-                        <p>{contribution.title}</p>
-                        <p>{contribution.description}</p>
                     </li>
                 ))}
             </ul>
