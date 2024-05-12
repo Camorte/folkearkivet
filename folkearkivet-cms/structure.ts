@@ -6,6 +6,10 @@ const structure: StructureToolOptions = (S: StructureBuilder) =>
     .title('Folkearkivet')
     .items([
       S.listItem()
+        .title('Landingsside')
+        .schemaType('landing')
+        .child(S.document().title('Landingsside').schemaType('landing').documentId('landing')),
+      S.listItem()
         .title('Artikler')
         .schemaType('article')
         .child(S.documentList().title('Future projects').filter('_type == "article"')),

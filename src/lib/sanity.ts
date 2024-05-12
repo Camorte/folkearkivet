@@ -51,6 +51,12 @@ export async function getContact() {
     return client.fetch(`*[_type=="contact"][0]{title, content}`);
 }
 
+export async function getLandingPage() {
+    return client.fetch(
+        `*[_type == "landing"][0]{eventRef->{title, eventSlug,"image": content[_type == "image"][0]{...}}}.eventRef`
+    );
+}
+
 const urlBuilderFactory = imageUrlBuilder(client);
 
 export function urlFor(image: SanityImageSource) {

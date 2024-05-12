@@ -19,6 +19,12 @@ export type Contribution = {
 
 type SanitySlug = { current: string; _type: 'slug' };
 
+export type LandingPage = {
+    title: string;
+    eventSlug: SanitySlug;
+    image: SanityImageAssetDocument;
+};
+
 export type ArticleOverview = {
     articleTitle: string;
     articleSlug: SanitySlug;
