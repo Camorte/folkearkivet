@@ -25,7 +25,7 @@ function Home() {
                     {landingPage && (
                         <div className="flex flex-col">
                             <Link
-                                className="hover:cursor-pointer w-fit"
+                                className="hover:cursor-pointer w-fit group"
                                 to={`/program/${landingPage.eventSlug.current}`}
                             >
                                 <img
@@ -33,7 +33,9 @@ function Home() {
                                     src={urlFor(landingPage.image).url()}
                                     alt={landingPage.title}
                                 />
-                                <h1>{landingPage.title}</h1>
+                                <h1 className="group-hover:underline">
+                                    {landingPage.title}
+                                </h1>
                             </Link>
                         </div>
                     )}
