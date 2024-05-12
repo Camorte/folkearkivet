@@ -5,8 +5,7 @@ import { Contribution } from '../lib/types.ts';
 
 const Archive = () => {
     const [archive, setArchive] = useState<Contribution[]>([]);
-    const [selectedContribution, setSelectedContribution] =
-        useState<Contribution>();
+    const [selectedContribution] = useState<Contribution>();
     const [showContribution, setShowContribution] = useState(false);
 
     useEffect(() => {
