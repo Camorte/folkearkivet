@@ -30,11 +30,11 @@ code {
         @apply text-5xl font-bold my-6 w-fit;
     }
     h2 {
-        @apply text-4xl font-bold my-6 w-fit;
+        @apply text-3xl font-bold my-6 w-fit;
     }
 
     h4 {
-        @apply text-3xl font-bold my-4 w-fit;
+        @apply text-2xl font-bold my-4 w-fit;
     }
 
     p {
@@ -46,4 +46,27 @@ code {
     .container {
         @apply py-[2vh] px-[2vw] flex flex-col max-w-full w-full h-full overflow-y-auto;
     }
+}
+
+.photo-gallery {
+    -webkit-column-count: 5;
+    -webkit-column-gap:   12px;
+    -moz-column-count:    5;
+    -moz-column-gap:      12px;
+    column-count:         5;
+    column-gap:           12px;
+}
+
+@media (max-width: 640px) {
+    .photo-gallery {
+        -webkit-column-count: 2;
+        -moz-column-count:    2;
+        column-count:         2;
+    }
+}
+
+.photo-gallery img {
+    /* Just in case there are inline attributes */
+    width: 100% !important;
+    height: auto !important;
 }

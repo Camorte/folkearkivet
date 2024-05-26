@@ -19,12 +19,9 @@ const Archive = () => {
 
     return (
         <Layout>
-            <ul className="grid grid-cols-4 grid-flow-dense auto-rows-auto gap-[6px]">
+            <ul className="photo-gallery">
                 {archive.map((contribution, index) => (
-                    <li
-                        key={contribution._id + '-' + index}
-                        className="row-[span_2/auto] col-span-[span_2/auto]"
-                    >
+                    <li key={contribution._id + '-' + index}>
                         <Link to={`/arkivet/${contribution._id}`}>
                             <img
                                 className="object-fit"

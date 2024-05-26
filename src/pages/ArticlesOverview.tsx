@@ -29,26 +29,27 @@ const ArticlesOverview = () => {
                     {articles.map((article) => (
                         <li
                             key={article.articleSlug.current}
-                            className="flex flex-row gap-x-8"
+                            className="flex flex-col md:flex-row gap-x-8"
                         >
                             <Link
+                                className="mb-4 md:mb-0"
                                 to={`/artikler/${article.articleSlug.current}`}
                             >
                                 {article.articleImage ? (
                                     <img
-                                        className="border-2 max-w-[400px]"
+                                        className="border-2 max-w-[400px] md:mb-0"
                                         src={urlFor(article.articleImage).url()}
                                         alt={article.articleTitle}
                                     />
                                 ) : (
-                                    <div className="w-[400px] h-[400px] border-2"></div>
+                                    <div className="w-full md:min-w-[400px] min-h-[400px] border-2"></div>
                                 )}
                             </Link>
                             <div className="flex flex-col">
                                 <h2 className="mt-0">{article.articleTitle}</h2>
                                 <p>{article.articleDescription}</p>
                                 <Link
-                                    className="underline mt-40"
+                                    className="underline md:mt-40"
                                     to={`/artikler/${article.articleSlug.current}`}
                                 >
                                     <p>Les mer</p>

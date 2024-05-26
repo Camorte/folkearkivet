@@ -28,7 +28,7 @@ const Program = () => {
                     {program.map((event) => (
                         <li
                             key={event.eventSlug.current}
-                            className="grid grid-cols-3 gap-x-4"
+                            className="flex flex-col gap-y-4 md:gap-y-0 md:grid md:grid-cols-3 md:gap-x-4"
                         >
                             <Link
                                 className="w-full"
