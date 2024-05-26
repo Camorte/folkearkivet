@@ -44,7 +44,7 @@ code {
 
 @layer components {
     .container {
-        @apply py-[2vh] px-[2vw] flex flex-col max-w-full w-full h-full overflow-y-auto;
+        @apply py-[2vh] px-[5vw] md:py-[3vh] md:px-[7vw] flex flex-col max-w-full w-full h-full overflow-y-auto;
     }
 }
 
