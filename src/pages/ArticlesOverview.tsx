@@ -46,10 +46,17 @@ const ArticlesOverview = () => {
                                 )}
                             </Link>
                             <div className="flex flex-col">
-                                <h2 className="mt-0">{article.articleTitle}</h2>
+                                <Link
+                                    className="group"
+                                    to={`/artikler/${article.articleSlug.current}`}
+                                >
+                                    <h2 className="mt-0 group-hover:underline">
+                                        {article.articleTitle}
+                                    </h2>
+                                </Link>
                                 <p>{article.articleDescription}</p>
                                 <Link
-                                    className="underline md:mt-40"
+                                    className="underline w-fit md:mt-40"
                                     to={`/artikler/${article.articleSlug.current}`}
                                 >
                                     <p>Les mer</p>

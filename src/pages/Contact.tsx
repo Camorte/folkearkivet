@@ -22,7 +22,7 @@ const Contact = () => {
         <Layout>
             {contact && (
                 <div>
-                    <h1>{contact.title}</h1>
+                    <h2>{contact.title}</h2>
                     <PortableText
                         value={contact.content}
                         components={PortableTextComponent}

@@ -22,7 +22,7 @@ const About = () => {
         <Layout>
             {biography && (
                 <div>
-                    <h1>{biography.title}</h1>
+                    <h2>{biography.title}</h2>
                     <PortableText
                         value={biography.content}
                         components={PortableTextComponent}

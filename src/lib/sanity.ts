@@ -53,7 +53,7 @@ export async function getContact() {
 
 export async function getLandingPage() {
     return client.fetch(
-        `*[_type == "landing"][0]{eventRef->{title, eventSlug,"image": content[_type == "image"][0]{...}}}.eventRef`
+        `*[_type == "landing"][0]{eventRef->{title, "image": content[_type == "image"][0]{...}}}.eventRef`
     );
 }
 

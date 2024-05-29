@@ -27,10 +27,10 @@ const Contribution = () => {
             ) : (
                 <>
                     {contribution && (
-                        <div className="flex flex-row gap-x-8">
+                        <div className="flex flex-col md:flex md:flex-row md:gap-x-8">
                             <div>
                                 <img
-                                    className={'w-full'}
+                                    className={'w-full mb-8 md:mb-0'}
                                     src={urlFor(contribution.image).url()}
                                     alt={contribution.title}
                                 />

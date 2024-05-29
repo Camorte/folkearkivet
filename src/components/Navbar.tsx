@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { IoMdClose } from 'react-icons/io';
 import { useState } from 'react';
@@ -11,11 +11,14 @@ const NavLinks = [
     { name: 'Kontakt', path: '/kontakt' }
 ];
 
-const NavbarLinks = () => (
+const NavbarLinks = ({ currentRoute }: { currentRoute: string }) => (
     <>
         {NavLinks.map((nav) => (
             <li key={`navlink-${nav.name}`}>
-                <Link className="hover:underline" to={nav.path}>
+                <Link
+                    className={`hover:underline hover:underline-offset-4 ${nav.path === currentRoute ? 'underline underline-offset-4' : ''}`}
+                    to={nav.path}
+                >
                     <p className="text-3xl md:text-xl">{nav.name}</p>
                 </Link>
             </li>
@@ -24,13 +27,14 @@ const NavbarLinks = () => (
 );
 
 const Navbar = () => {
+    const location = useLocation();
     const [showMenu, setShowMenu] = useState<boolean>(false);
 
     return (
         <>
             <div className="flex items-center">
                 <ul className="hidden md:flex-row md:gap-x-8 md:flex">
-                    <NavbarLinks />
+                    <NavbarLinks currentRoute={location.pathname} />
                 </ul>
                 <button
                     className="mb-0 px-4 md:hidden"
@@ -48,7 +52,7 @@ const Navbar = () => {
                         <IoMdClose />
                     </button>
                     <ul className="flex flex-col pl-4">
-                        <NavbarLinks />
+                        <NavbarLinks currentRoute={location.pathname} />
                     </ul>
                 </div>
             )}

@@ -10,7 +10,6 @@ import Program from './pages/Program.tsx';
 import ArticlesOverview from './pages/ArticlesOverview.tsx';
 import ErrorPage from './pages/ErrorPage.tsx';
 import Article from './pages/ArticlePage.tsx';
-import Event from './pages/EventPage.tsx';
 import Contribution from './pages/Contribution.tsx';
 
 const router = createBrowserRouter([
@@ -38,10 +37,6 @@ const router = createBrowserRouter([
             {
                 path: '/program',
                 element: <Program />
-            },
-            {
-                path: '/program/:event',
-                element: <Event />
             },
             {
                 path: '/artikler',

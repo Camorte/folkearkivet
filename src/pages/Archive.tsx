@@ -21,7 +21,10 @@ const Archive = () => {
         <Layout>
             <ul className="photo-gallery">
                 {archive.map((contribution, index) => (
-                    <li key={contribution._id + '-' + index}>
+                    <li
+                        key={contribution._id + '-' + index}
+                        className="mb-[12px]"
+                    >
                         <Link to={`/arkivet/${contribution._id}`}>
                             <img
                                 className="object-fit"

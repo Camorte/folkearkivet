@@ -26,7 +26,7 @@ function Home() {
                         <div className="flex flex-col">
                             <Link
                                 className="hover:cursor-pointer w-fit group"
-                                to={`/program/${landingPage.eventSlug.current}`}
+                                to={`/program`}
                             >
                                 <img
                                     className="w-full max-w-[600px]"

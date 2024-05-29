@@ -21,7 +21,6 @@ type SanitySlug = { current: string; _type: 'slug' };
 
 export type LandingPage = {
     title: string;
-    eventSlug: SanitySlug;
     image: SanityImageAssetDocument;
 };
 
@@ -47,7 +46,6 @@ export type ProgramOverview = {
     title: string;
     info: string;
     description: string;
-    eventSlug: SanitySlug;
     image?: SanityImageAssetDocument;
 };
 
