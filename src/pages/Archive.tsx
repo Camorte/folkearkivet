@@ -23,11 +23,11 @@ const Archive = () => {
                 {archive.map((contribution, index) => (
                     <li
                         key={contribution._id + '-' + index}
-                        className="mb-[12px]"
+                        className="group mb-[12px]"
                     >
                         <Link to={`/arkivet/${contribution._id}`}>
                             <img
-                                className="object-fit"
+                                className="group-hover:opacity-60 object-fit"
                                 src={urlFor(contribution.image).url()}
                                 alt={contribution.title}
                             />
