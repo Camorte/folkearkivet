@@ -4,7 +4,7 @@ import { IoMdClose } from 'react-icons/io';
 import { useEffect, useRef, useState } from 'react';
 
 const NavLinks = [
-    { name: 'Arkivet', path: '/arkivet' },
+    { name: 'ARKIVET', path: '/arkivet' },
     { name: 'Program', path: '/program' },
     { name: 'Artikler', path: '/artikler' },
     { name: 'Biografi', path: '/biografi' },
