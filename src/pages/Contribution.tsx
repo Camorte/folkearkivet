@@ -28,15 +28,17 @@ const Contribution = () => {
                 <>
                     {contribution && (
                         <div className="flex flex-col md:flex md:flex-row md:gap-x-8">
-                            <div>
+                            <div className="md:max-w-[66%]">
                                 <img
                                     className={'w-full mb-8 md:mb-0'}
                                     src={urlFor(contribution.image).url()}
                                     alt={contribution.title}
                                 />
                             </div>
-                            <div className="flex flex-col max-w-[560px] w-full">
-                                <h1 className="mt-0">{contribution.title}</h1>
+                            <div className="flex flex-col w-full md:fixed md:bottom-0 md:right-0 md:bg-black md:pr-[7vw] md:max-w-[34%] ">
+                                <h1 className="mt-0 w-full break-words">
+                                    {contribution.title}
+                                </h1>
                                 <p>
                                     {contribution.location},{' '}
                                     {contribution.category}
