@@ -13,7 +13,6 @@ const Contribution = () => {
         if (params.id) {
             getContribution(params.id)
                 .then((response) => {
-                    console.log(response);
                     setContribution(response);
                 })
                 .finally(() => setIsLoading(false));

@@ -11,7 +11,6 @@ const ArticlesOverview = () => {
     useEffect(() => {
         getArticles()
             .then((response) => {
-                console.log(response);
                 setArticles(response);
             })
             .catch((error) => {
