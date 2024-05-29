@@ -4,9 +4,10 @@ const ErrorPage = () => {
     return (
         <Layout>
             <div>
+                <h1>Woops! Noe har gått galt</h1>
                 <h2 className="font-normal">
-                    Woops! Noe har gått galt - Ser ikke ut som denne siden
-                    eksisterer
+                    Denne siden eksisterer kanskje ikke, eller så har det skjedd
+                    en feil.
                 </h2>
             </div>
         </Layout>
