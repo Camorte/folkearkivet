@@ -35,7 +35,7 @@ const Contribution = () => {
                                     alt={contribution.title}
                                 />
                             </div>
-                            <div className="flex flex-col w-full md:fixed md:bottom-0 md:right-0 md:bg-black md:pr-[7vw] md:max-w-[34%] ">
+                            <div className="flex flex-col w-full md:fixed md:bottom-0 md:right-0 md:bg-black md:py-8 md:pr-[7vw] md:max-w-[34%] ">
                                 <h1 className="mt-0 w-full break-words">
                                     {contribution.title}
                                 </h1>
