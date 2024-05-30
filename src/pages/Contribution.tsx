@@ -38,7 +38,7 @@ const Contribution = () => {
                                 <h1 className="mt-0 w-full break-words">
                                     {contribution.title}
                                 </h1>
-                                <p>
+                                <p className="text-lg italic">
                                     {contribution.location},{' '}
                                     {contribution.category}
                                 </p>
