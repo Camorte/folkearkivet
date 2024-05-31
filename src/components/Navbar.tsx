@@ -16,7 +16,7 @@ const NavbarLinks = ({ currentRoute }: { currentRoute: string }) => (
             <li className="group w-fit block" key={`navlink-${nav.name}`}>
                 <Link to={nav.path}>
                     <p
-                        className={`group-hover:border-b-2 group-hover:border-[lightyellow] py-2 px-2 md:text-xl ${currentRoute.includes(nav.path) ? 'border-b-2 border-[lightyellow]' : ''}`}
+                        className={`group-hover:border-b-2 group-hover:border-[lightyellow] py-2 px-2 md:text-xl ${currentRoute.includes(nav.path) ? 'border-b-2 border-[#D2B069]' : ''}`}
                     >
                         {nav.name}
                     </p>
