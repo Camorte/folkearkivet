@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from 'react';
 const NavLinks = [
     { name: 'ARKIVET', path: '/arkivet' },
     { name: 'Program', path: '/program' },
-    { name: 'Artikler', path: '/artikler' },
     { name: 'Biografi', path: '/biografi' },
     { name: 'Kontakt', path: '/kontakt' }
 ];

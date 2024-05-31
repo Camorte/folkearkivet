@@ -7,9 +7,7 @@ import Archive from './pages/Archive.tsx';
 import About from './pages/About.tsx';
 import Contact from './pages/Contact.tsx';
 import Program from './pages/Program.tsx';
-import ArticlesOverview from './pages/ArticlesOverview.tsx';
 import ErrorPage from './pages/ErrorPage.tsx';
-import Article from './pages/ArticlePage.tsx';
 import Contribution from './pages/Contribution.tsx';
 
 const router = createBrowserRouter([
@@ -37,14 +35,6 @@ const router = createBrowserRouter([
             {
                 path: '/program',
                 element: <Program />
-            },
-            {
-                path: '/artikler',
-                element: <ArticlesOverview />
-            },
-            {
-                path: '/artikler/:article',
-                element: <Article />
             }
         ]
     }
