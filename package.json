@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@portabletext/react": "^3.0.18",
+    "@portabletext/react": "^3.2.1",
     "@portabletext/types": "^2.0.13",
     "@sanity/client": "^6.18.0",
     "@sanity/image-url": "^1.0.2",
