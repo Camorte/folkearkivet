@@ -13,7 +13,7 @@
     "@portabletext/react": "^3.0.18",
     "@portabletext/types": "^2.0.13",
     "@sanity/client": "^6.18.0",
-    "@sanity/image-url": "^1.0.2",
+    "@sanity/image-url": "^1.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
