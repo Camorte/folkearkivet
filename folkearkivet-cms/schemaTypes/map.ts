@@ -3,7 +3,7 @@ import {defineType, defineField} from 'sanity'
 
 export const map = defineType({
   name: 'map',
-  title: 'Map',
+  title: 'Arkiv kart',
   type: 'document',
   fields: [
     defineField({

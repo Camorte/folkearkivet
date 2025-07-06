@@ -2,15 +2,15 @@ import {defineType, defineField} from 'sanity'
 
 export const mapPoint = defineType({
   name: 'mapPoint',
-  title: 'Map Point',
+  title: 'Lokasjons punkt',
   type: 'object',
   fields: [
     defineField({
       name: 'location',
-      title: 'Location',
+      title: 'Lokasjon',
       type: 'geopoint',
     }),
-    defineField({name: 'title', type: 'string', title: 'Title'}),
-    defineField({name: 'detail', type: 'string', title: 'Detail'}),
+    defineField({name: 'title', type: 'string', title: 'Tittel'}),
+    defineField({name: 'detail', type: 'string', title: 'Beskrivelse'}),
   ],
 })

@@ -3,7 +3,7 @@ import {LeafletInput} from '../components/LeafletInput'
 
 export const mapPointArray = defineType({
   name: 'mapPointArray',
-  title: 'Map Points',
+  title: 'Lokasjons punkter',
   type: 'array',
   of: [{type: 'mapPoint'}],
   components: {
