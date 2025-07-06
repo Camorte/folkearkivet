@@ -18,7 +18,7 @@ type MapPoint = {
 }
 
 const ICON = icon({
-  iconUrl: '/marker.png',
+  iconUrl: 'https://folkearkivet.no/assets/images/folkearkivet_map_marker.png',
   iconSize: [32, 32],
 })
 
@@ -81,6 +81,7 @@ export const LeafletInput = (props: ObjectInputProps<MapPoint[]>) => {
           return (
             <Marker
               key={key}
+              icon={ICON}
               position={[point.location.lat, point.location.lng]}
               draggable
               eventHandlers={{
