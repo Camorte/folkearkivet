@@ -5,6 +5,7 @@ import {uuid} from '@sanity/uuid'
 import {TrashIcon} from '@sanity/icons'
 
 import type {LeafletMouseEvent, LatLng, LatLngExpression} from 'leaflet'
+import {icon} from 'leaflet'
 
 import {set, type ObjectInputProps, type GeopointValue} from 'sanity'
 import {Box, Button, Card, Dialog, Flex, Label, Stack, TextArea, TextInput} from '@sanity/ui'
@@ -15,6 +16,11 @@ type MapPoint = {
   title?: string
   detail?: string
 }
+
+const ICON = icon({
+  iconUrl: '/marker.png',
+  iconSize: [32, 32],
+})
 
 export const LeafletInput = (props: ObjectInputProps<MapPoint[]>) => {
   const {value = [], onChange, readOnly} = props
@@ -63,13 +69,9 @@ export const LeafletInput = (props: ObjectInputProps<MapPoint[]>) => {
     return null
   }
 
-  const center: LatLngExpression = value[0]
-    ? [value[0].location.lat ?? 0, value[0].location.lng ?? 0]
-    : [0, 0]
-
   return (
-    <Box padding={2} style={{height: 320}}>
-      <MapContainer center={center} zoom={value ? 13 : 2} style={{height: 300}} scrollWheelZoom>
+    <Box padding={2} style={{height: 500}}>
+      <MapContainer center={[59.91, 10.75]} zoom={6} style={{height: '500px'}} scrollWheelZoom>
         <TileLayer
           attribution="&copy; OpenStreetMap contributors"
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
