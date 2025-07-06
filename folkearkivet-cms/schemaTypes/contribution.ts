@@ -22,6 +22,6 @@ export const contribution = defineType({
     defineField({title: 'Tittel', name: 'title', type: 'string'}),
     defineField({title: 'Kategori', name: 'category', type: 'string'}),
     defineField({title: 'Sted', name: 'location', type: 'string'}),
-    defineField({title: 'Beksrivelse', name: 'description', type: 'text'}),
+    defineField({title: 'Beskrivelse', name: 'description', type: 'text'}),
   ],
 })

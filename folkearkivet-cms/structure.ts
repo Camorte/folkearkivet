@@ -59,6 +59,10 @@ const structure: StructureToolOptions = (S: StructureBuilder) =>
         .title('Program')
         .schemaType('event')
         .child(S.documentList().title('Arrangementer').filter('_type == "event"')),
+      S.listItem()
+        .title('Kart')
+        .schemaType('map')
+        .child(S.document().title('Kart').schemaType('map').documentId('map')),
     ])
 
 export default structure
