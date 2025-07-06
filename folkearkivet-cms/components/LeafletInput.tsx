@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css'
 import {uuid} from '@sanity/uuid'
 import {TrashIcon} from '@sanity/icons'
 
-import type {LeafletMouseEvent, LatLng, LatLngExpression} from 'leaflet'
+import type {LeafletMouseEvent, LatLng} from 'leaflet'
 import {icon} from 'leaflet'
 
 import {set, type ObjectInputProps, type GeopointValue} from 'sanity'
