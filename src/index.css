@@ -10,8 +10,8 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 1.6rem;
-    background-color: black;
-    color: lightyellow;
+    background-color: #F7DBA7;
+    color: black;
 }
 
 code {
@@ -29,8 +29,9 @@ code {
     h1 {
         @apply text-5xl font-bold my-6 w-fit;
     }
+
     h2 {
-        @apply text-3xl font-bold my-6 w-fit;
+        @apply text-4xl font-bold my-6 w-fit;
     }
 
     h4 {
@@ -38,13 +39,17 @@ code {
     }
 
     p {
-        @apply text-xl my-2 font-[300] w-fit;
+        @apply text-base my-2 font-[300] w-fit;
     }
 }
 
 @layer components {
     .container {
         @apply py-[2vh] px-[5vw] md:py-[3vh] md:px-[7vw] flex flex-col max-w-full w-full overflow-y-auto;
+    }
+
+    .landing-container {
+        @apply px-[25vw]
     }
 }
 
