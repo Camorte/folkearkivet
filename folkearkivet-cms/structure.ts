@@ -8,7 +8,7 @@ const structure: StructureToolOptions = (S: StructureBuilder) =>
       S.listItem()
         .title('Landingsside')
         .schemaType('landing')
-        .child(S.document().title('Landingsside').schemaType('landing').documentId('landing')),
+        .child(S.document().title('Landingsside').schemaType('map').documentId('map')),
       S.listItem()
         .title('Artikler')
         .schemaType('article')
@@ -48,21 +48,9 @@ const structure: StructureToolOptions = (S: StructureBuilder) =>
             .filter('_type == "contribution"'),
         ),
       S.listItem()
-        .title('Biografi')
-        .schemaType('biography')
-        .child(S.document().schemaType('biography').documentId('biography')),
-      S.listItem()
-        .title('Kontakt')
-        .schemaType('contact')
-        .child(S.document().schemaType('contact').documentId('contact')),
-      S.listItem()
         .title('Program')
         .schemaType('event')
         .child(S.documentList().title('Arrangementer').filter('_type == "event"')),
-      S.listItem()
-        .title('Kart')
-        .schemaType('map')
-        .child(S.document().title('Kart').schemaType('map').documentId('map')),
     ])
 
 export default structure
