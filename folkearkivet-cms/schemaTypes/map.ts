@@ -12,5 +12,7 @@ export const map = defineType({
       type: 'mapPointArray', // Now references your custom array type
       validation: (Rule) => Rule.required(),
     }),
+    defineField({name: 'biography', type: 'biography', title: 'Biografi'}),
+    defineField({name: 'contact', type: 'contact', title: 'Kontakt oss'}),
   ],
 })

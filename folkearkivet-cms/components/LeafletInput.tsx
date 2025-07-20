@@ -1,21 +1,12 @@
-import {useState} from 'react'
 import {MapContainer, Marker, Popup, TileLayer, useMapEvents} from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import {uuid} from '@sanity/uuid'
-import {TrashIcon, WarningFilledIcon} from '@sanity/icons'
 
-import {LatLng, LeafletMouseEvent, PolyUtil} from 'leaflet'
+import {LatLng, LeafletMouseEvent} from 'leaflet'
 import {icon} from 'leaflet'
 
-import {
-  ArrayInputInsertEvent,
-  ArrayOfObjectsInputProps,
-  type GeopointValue,
-  Path,
-  set,
-} from 'sanity'
+import {ArrayOfObjectsInputProps, type GeopointValue, Path, set} from 'sanity'
 import {Box, Button, Flex} from '@sanity/ui'
-import clipPolygon = PolyUtil.clipPolygon
 
 type MapPoint = {
   _key: string
@@ -81,7 +72,7 @@ export const LeafletInput = (props: ArrayOfObjectsInputProps<MapPoint>) => {
   }
 
   return (
-    <Box padding={2} style={{height: 500}}>
+    <Box padding={2}>
       <MapContainer center={[59.91, 10.75]} zoom={6} style={{height: '500px'}} scrollWheelZoom>
         <TileLayer
           attribution="&copy; OpenStreetMap contributors"
