@@ -6,6 +6,7 @@ export const mapPointArray = defineType({
   title: 'Lokasjons punkter',
   type: 'array',
   of: [{type: 'mapPoint'}],
+  options: {modal: {type: 'dialog'}},
   components: {
     input: LeafletInput,
   },

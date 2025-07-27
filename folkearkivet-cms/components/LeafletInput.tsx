@@ -6,10 +6,11 @@ import {LatLng, LeafletMouseEvent} from 'leaflet'
 import {icon} from 'leaflet'
 
 import {ArrayOfObjectsInputProps, type GeopointValue, Path, set} from 'sanity'
-import {Box, Button, Flex} from '@sanity/ui'
+import {Box, Button, Flex, Label} from '@sanity/ui'
 
 type MapPoint = {
   _key: string
+  _type: string
   location: GeopointValue
   title?: string
   year?: number
@@ -22,7 +23,7 @@ const ICON = icon({
 })
 
 export const LeafletInput = (props: ArrayOfObjectsInputProps<MapPoint>) => {
-  const {value = [], onChange, readOnly, onItemOpen, onItemExpand, onItemAppend} = props
+  const {value = [], onChange, readOnly, onItemOpen, onPathFocus, onItemAppend} = props
 
   const addPoint = ({lat, lng}: LatLng) => {
     const newKey = uuid()
@@ -33,6 +34,7 @@ export const LeafletInput = (props: ArrayOfObjectsInputProps<MapPoint>) => {
       lng,
     }
     const newItem = {
+      _type: 'mapPoint',
       _key: newKey,
       location: geoPoint,
       title: '',
@@ -40,8 +42,6 @@ export const LeafletInput = (props: ArrayOfObjectsInputProps<MapPoint>) => {
       detail: '',
     }
     onItemAppend(newItem)
-
-    onItemOpen([...props.path, {_key: newKey}])
   }
 
   const updatePoint = (index: number, updates: Partial<MapPoint>) => {
@@ -54,12 +54,20 @@ export const LeafletInput = (props: ArrayOfObjectsInputProps<MapPoint>) => {
   }
 
   const handleMarkerClick = (index: number) => {
-    const key = value[index]._key
-    if (key) {
-      const fullPath: Path = [...props.path, {_key: key}]
-
-      onItemOpen(fullPath)
+    const key = value[index]?._key
+    if (!key) {
+      console.warn('No key for item at index', index)
+      return
     }
+
+    const fullPath: Path = [...props.path, {_key: key}]
+
+    onPathFocus([{_key: key}])
+
+    // Slight delay to allow Studio to register focus before opening dialog
+    setTimeout(() => {
+      onItemOpen(fullPath)
+    }, 0)
   }
 
   function ClickCapture() {
@@ -104,6 +112,9 @@ export const LeafletInput = (props: ArrayOfObjectsInputProps<MapPoint>) => {
             >
               <Popup>
                 <Box>
+                  <Box marginBottom={4}>
+                    <Label size={4}>{point.title ?? 'Mangler tittel'}</Label>
+                  </Box>
                   <Flex direction="row" gap={2}>
                     <Button
                       text="Rediger lokasjon"

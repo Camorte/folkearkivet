@@ -21,7 +21,7 @@ export const mapPoint = defineType({
       name: 'detail',
       type: 'text',
       title: 'Beskrivelse',
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().max(400),
     }),
     defineField({
       name: 'contributionRef',
