@@ -8,6 +8,7 @@ import { icon } from "leaflet";
 import { Link } from "react-router-dom";
 import PortableTextComponent from "../components/PortableTextComponent.tsx";
 import { PortableText } from "@portabletext/react";
+import SignFolkeArkivet from "../components/svgs/SignFolkearkivet.tsx";
 
 const ICON = icon({
 	iconUrl: "/assets/images/folkearkivet_map_marker.png",
@@ -49,6 +50,7 @@ function Home() {
 								url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 							/>
 							{landingPage.content.map((point, index) => {
+								console.log(point);
 								return (
 									<Marker
 										icon={ICON}
@@ -56,9 +58,15 @@ function Home() {
 										position={[point.location.lat, point.location.lng]}
 									>
 										<Popup>
-											<Link className="underline" to={`/arkivet/${landingPage.content[index].contributionRef._id}`}>
-												{landingPage.content[index].contributionRef.title}
-											</Link>
+											<div className="flex flex-col items-center">
+												<SignFolkeArkivet title={point.title} description={point.detail} year={point.year} />
+												<Link
+													className="underline text-lg"
+													to={`/arkivet/${landingPage.content[index].contributionRef._id}`}
+												>
+													{landingPage.content[index].contributionRef.title}
+												</Link>
+											</div>
 										</Popup>
 									</Marker>
 								);
