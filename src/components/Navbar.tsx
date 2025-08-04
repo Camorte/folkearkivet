@@ -2,19 +2,25 @@ import { Link, useLocation } from "react-router-dom";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose } from "react-icons/io";
 import { useEffect, useRef, useState } from "react";
+import classNames from "classnames";
 
 const NavLinks = [
 	{ name: "ARKIVET", path: "/arkivet" },
 	{ name: "Arrangementer", path: "/arrangementer" },
 ];
 
-const NavbarLinks = ({ currentRoute }: { currentRoute: string }) => (
+const NavbarLinks = ({ currentRoute, isHomePage }: { currentRoute: string; isHomePage: boolean }) => (
 	<>
 		{NavLinks.map((nav) => (
 			<li className="group w-fit block" key={`navlink-${nav.name}`}>
 				<Link to={nav.path}>
 					<p
-						className={`group-hover:border-b-2 group-hover:border-black py-2 px-2 md:text-xl ${currentRoute.includes(nav.path) ? "border-b-2 border-black" : ""}`}
+						className={classNames("group-hover:border-b-2 py-2 px-2 md:text-xl", {
+							" border-b-2 border-black": currentRoute.includes(nav.path) && isHomePage,
+							"border-b-2 border-[#F7DBA7]": currentRoute.includes(nav.path) && !isHomePage,
+							"group-hover:border-[#F7DBA7]": !isHomePage,
+							"group-hover:border-black": isHomePage,
+						})}
 					>
 						{nav.name}
 					</p>
@@ -29,6 +35,9 @@ const Navbar = () => {
 	const [showMenu, setShowMenu] = useState<boolean>(false);
 
 	const divRef = useRef<HTMLDivElement | null>(null);
+
+	const isHomePage = ["/"].includes(location.pathname);
+	const backgroundStyle = { "bg-[#F7DBA7]": isHomePage, "bg-black": !isHomePage };
 
 	useEffect(() => {
 		// Function to handle click events
@@ -46,7 +55,12 @@ const Navbar = () => {
 	}, [divRef]);
 
 	return (
-		<div className="px-[5vw] md:px-[7vw] sticky top-0 bg-[#F7DBA7] flex flex-row items-center justify-between w-full py-4 z-10">
+		<div
+			className={classNames(
+				"px-[5vw] md:px-[7vw] sticky top-0  flex flex-row items-center justify-between w-full py-4 z-10",
+				backgroundStyle,
+			)}
+		>
 			<Link className="hidden md:block" to={"/"}>
 				<img className="max-w-[350px]" src="/assets/images/Logoskilt.svg" alt={"Folkearkivet logo"} />
 			</Link>
@@ -55,7 +69,7 @@ const Navbar = () => {
 			</Link>
 			<div className="flex items-center">
 				<ul className="hidden md:flex-row md:gap-x-8 md:flex">
-					<NavbarLinks currentRoute={location.pathname} />
+					<NavbarLinks currentRoute={location.pathname} isHomePage={isHomePage} />
 				</ul>
 				<button className="mb-0 px-4 md:hidden" onClick={() => setShowMenu(!showMenu)}>
 					<GiHamburgerMenu />
@@ -63,12 +77,12 @@ const Navbar = () => {
 			</div>
 			{showMenu && (
 				<div className="fixed top-0 right-0 w-full h-full">
-					<div ref={divRef} className="absolute flex flex-col w-2/3 h-full bg-[#F7DBA7] right-0">
+					<div ref={divRef} className={classNames("absolute flex flex-col w-2/3 h-full  right-0", backgroundStyle)}>
 						<button className="self-end mr-4 my-2" onClick={() => setShowMenu(false)}>
 							<IoMdClose />
 						</button>
-						<ul className="flex flex-col pl-4 items-center  ">
-							<NavbarLinks currentRoute={location.pathname} />
+						<ul className="flex flex-col pl-4 items-center">
+							<NavbarLinks currentRoute={location.pathname} isHomePage={isHomePage} />
 						</ul>
 					</div>
 				</div>

@@ -19,7 +19,7 @@ export type Contribution = {
 
 type SanitySlug = { current: string; _type: "slug" };
 
-type MapPoint = {
+export type MapPoint = {
 	title: string;
 	year: number;
 	detail: string;

@@ -15,6 +15,7 @@
     "@portabletext/types": "^2.0.13",
     "@sanity/client": "^6.18.0",
     "@sanity/image-url": "^1.1.0",
+    "classnames": "^2.5.1",
     "globals": "^16.3.0",
     "leaflet": "^1.9.4",
     "prettier": "^3.6.2",
