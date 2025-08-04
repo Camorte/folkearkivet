@@ -46,11 +46,11 @@ const Archive = () => {
 									width={400}
 									height={400}
 									srcSet={[
-										`${urlFor(contribution.image).width(400).url()} 400w`,
-										`${urlFor(contribution.image).width(800).url()} 800w`,
-										`${urlFor(contribution.image).width(1200).url()} 1200w`,
+										`${urlFor(contribution.image).width(300).auto("format").url()} 300w`,
+										`${urlFor(contribution.image).width(600).auto("format").url()} 600w`,
+										`${urlFor(contribution.image).width(900).auto("format").url()} 900w`,
 									].join(", ")}
-									sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1200px"
+									sizes="(max-width: 640px) 50vw, 20vw"
 									alt={contribution.title}
 									onLoad={() => {
 										setLoadedImages((prev) => ({
