@@ -11,7 +11,18 @@ export const client = createClient({
 });
 
 export async function getContributions() {
-	return await client.fetch('*[_type == "contribution"]{_id, image, title }');
+	return await client.fetch(`*[_type == "contribution"]{_id, image {
+    asset->{
+      metadata {
+        lqip,
+        dimensions {
+          width,
+          height
+        }
+      },
+      url
+    }
+  }, title }`);
 }
 
 export async function getContribution(id: string) {
