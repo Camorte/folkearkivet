@@ -5,16 +5,24 @@ export type ContributionOverview = {
 	_id: string;
 	title: string;
 	image: SanityImageAssetDocument;
+	categoryRef?: {
+		_id: string;
+		name: string;
+		image: SanityImageAssetDocument;
+	};
 };
 
 export type Contribution = {
 	_id: string;
 	title: string;
 	description: string;
-	category: string;
 	location: string;
 	src: string;
 	image: SanityImageAssetDocument;
+	categoryRef?: {
+		name: string;
+		image: SanityImageAssetDocument;
+	};
 };
 
 type SanitySlug = { current: string; _type: "slug" };

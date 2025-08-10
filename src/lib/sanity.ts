@@ -22,12 +22,12 @@ export async function getContributions() {
       },
       url
     }
-  }, title }`);
+  }, title, categoryRef->{_id, name, image} }`);
 }
 
 export async function getContribution(id: string) {
 	return await client.fetch(
-		`*[_type == "contribution" && _id=="${id}"][0]{_id, title, image, description, location, category}`,
+		`*[_type == "contribution" && _id=="${id}"][0]{_id, title, image, description, location, categoryRef->{name, image}}`,
 	);
 }
 
@@ -51,6 +51,21 @@ export async function getArticle(articleSlug: string) {
 	return client.fetch(
 		`*[_type=="article" && articleSlug.current=="${articleSlug}"][0]{articleTitle, articleSlug, content}`,
 	);
+}
+
+export async function getCategories() {
+	return await client.fetch(`*[_type == "category"]{_id, image {
+    asset->{
+      metadata {
+        lqip,
+        dimensions {
+          width,
+          height
+        }
+      },
+      url
+    }
+  }, name }`);
 }
 
 export async function getLandingPage(): Promise<LandingPage> {

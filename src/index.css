@@ -49,7 +49,7 @@ code {
     }
 
     .landing-container {
-        @apply px-[25vw]
+        @apply px-[10vw] md:px-[25vw]
     }
 }
 

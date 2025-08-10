@@ -33,15 +33,15 @@ const SignFolkeArkivet = ({ title, year, description }: { title: string; year?: 
 			</text>
 		)}
 
-		<foreignObject x="80" y="140" width="430" height="200">
+		<foreignObject x="100" y="80" width="400" height="300">
 			<div
 				className="w-full h-full flex items-center justify-center"
 				style={{
 					color: "white",
-					fontSize: "16px",
+					fontSize: "22px",
 					fontFamily: "serif",
 					textAlign: "center",
-					lineHeight: "1.4",
+					lineHeight: "1.2",
 				}}
 			>
 				<div className="whitespace-pre-wrap">{description}</div>
