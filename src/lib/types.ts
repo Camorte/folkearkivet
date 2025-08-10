@@ -37,6 +37,7 @@ export type Contribution = {
 	location: string;
 	src: string;
 	image: SanityImageAssetDocument;
+	category: string;
 	categoryRef?: {
 		name: string;
 		image: SanityImageAssetDocument;
