@@ -27,7 +27,8 @@ export default defineConfig({
       return context.schemaType === 'map' ||
         context.schemaType === 'landing' ||
         context.schemaType === 'contact' ||
-        context.schemaType === 'biography'
+        context.schemaType === 'biography' ||
+        context.schemaType === 'mainCategory'
         ? [...prev.filter((action) => action.action !== 'duplicate' && action.action !== 'delete')]
         : prev
     },
@@ -39,7 +40,8 @@ export default defineConfig({
             templateItem.templateId != 'map' &&
             templateItem.templateId != 'landing' &&
             templateItem.templateId != 'contact' &&
-            templateItem.templateId != 'biography',
+            templateItem.templateId != 'biography' &&
+            templateItem.templateId != 'mainCategory',
         )
       }
       return prev

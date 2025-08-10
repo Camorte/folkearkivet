@@ -14,6 +14,30 @@ const structure: StructureToolOptions = (S: StructureBuilder) =>
         .schemaType('article')
         .child(S.documentList().title('Future projects').filter('_type == "article"')),
       S.listItem()
+        .title('Kategorier')
+        .child(
+          S.list()
+            .title('Kategorier')
+            .items([
+              S.listItem()
+                .title('Hovedkategori')
+                .child(
+                  S.document()
+                    .title('Hovedkategori')
+                    .schemaType('mainCategory')
+                    .documentId('mainCategory'),
+                ),
+              S.listItem()
+                .title('Andre kategorier')
+                .child(S.documentList().title('Andre kategorier').filter('_type == "category"')),
+              S.listItem()
+                .title('Spesialkategorier')
+                .child(
+                  S.documentList().title('Spesialkategorier').filter('_type == "specialCategory"'),
+                ),
+            ]),
+        ),
+      S.listItem()
         .title('Bidrag')
         .schemaType('contribution')
         .child(
@@ -21,7 +45,7 @@ const structure: StructureToolOptions = (S: StructureBuilder) =>
             .menuItems([
               S.orderingMenuItem({
                 title: 'Tittel stigende',
-                by: [{field: 'Tittel', direction: 'asc'}],
+                by: [{field: 'title', direction: 'asc'}],
               }),
               S.orderingMenuItem({
                 title: 'Tittel sykende',

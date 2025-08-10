@@ -27,6 +27,12 @@ export const contribution = defineType({
       type: 'reference',
       to: [{type: 'category'}],
     }),
+    defineField({
+      title: 'Spesialkategori',
+      name: 'specialCategoryRef',
+      type: 'reference',
+      to: [{type: 'specialCategory'}],
+    }),
     defineField({title: 'Sted', name: 'location', type: 'string'}),
     defineField({title: 'Beskrivelse', name: 'description', type: 'text'}),
   ],
