@@ -9,18 +9,13 @@ const NavLinks = [
 	{ name: "Arrangementer", path: "/arrangementer" },
 ];
 
-const NavbarLinks = ({ currentRoute, isHomePage }: { currentRoute: string; isHomePage: boolean }) => (
+const NavbarLinks = ({ currentRoute }: { currentRoute: string }) => (
 	<>
 		{NavLinks.map((nav) => (
 			<li className="group w-fit block" key={`navlink-${nav.name}`}>
 				<Link to={nav.path}>
 					<p
-						className={classNames("group-hover:border-b-2 py-2 px-2 md:text-xl", {
-							" border-b-2 border-black": currentRoute.includes(nav.path) && isHomePage,
-							"border-b-2 border-[#F7DBA7]": currentRoute.includes(nav.path) && !isHomePage,
-							"group-hover:border-[#F7DBA7]": !isHomePage,
-							"group-hover:border-black": isHomePage,
-						})}
+						className={`group-hover:underline-offset-[12px] group-hover:underline py-2 px-2 md:text-xl ${currentRoute.includes(nav.path) ? "underline underline-offset-[12px]" : ""}`}
 					>
 						{nav.name}
 					</p>
@@ -69,7 +64,7 @@ const Navbar = () => {
 			</Link>
 			<div className="flex items-center">
 				<ul className="hidden md:flex-row md:gap-x-8 md:flex">
-					<NavbarLinks currentRoute={location.pathname} isHomePage={isHomePage} />
+					<NavbarLinks currentRoute={location.pathname} />
 				</ul>
 				<button className="mb-0 px-4 md:hidden" onClick={() => setShowMenu(!showMenu)}>
 					<GiHamburgerMenu />
@@ -82,7 +77,7 @@ const Navbar = () => {
 							<IoMdClose />
 						</button>
 						<ul className="flex flex-col pl-4 items-center">
-							<NavbarLinks currentRoute={location.pathname} isHomePage={isHomePage} />
+							<NavbarLinks currentRoute={location.pathname} />
 						</ul>
 					</div>
 				</div>
