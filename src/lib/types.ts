@@ -55,6 +55,8 @@ export type MapPoint = {
 };
 
 export type LandingPage = {
+	description?: string;
+	mapTitle?: string;
 	content: MapPoint[];
 	biography?: StandardArticle;
 	contact?: StandardArticle;

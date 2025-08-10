@@ -27,15 +27,13 @@ function Home() {
 				</div>
 			) : (
 				<div className="pt-[80px] pb-[80px]">
-					<div className="landing-container mb-[48px]">
-						<p className="font-bold">
-							Folkearkivet er et levende og visuelt mediearkiv over kontemporær folkekunst. Arkivet samler historier,
-							bilde, tegning, tekst, film, performance, kostyme, dekorasjon og noen forbausende objekter fra Norge, og
-							siden Sápmi, Sverige, Danmark, Finland, Island, Grønland og Færøyene.
-						</p>
-					</div>
+					{landingPage.description && (
+						<div className="landing-container mb-[48px]">
+							<p className="font-bold">{landingPage.description}</p>
+						</div>
+					)}
 					<div className="w-full">
-						<h2 className="landing-container">Opplev Folkearkivet på kartet</h2>
+						<h2 className="landing-container">{landingPage.mapTitle}</h2>
 						<Map content={landingPage.content} />
 					</div>
 					<div className="landing-container mt-[60px]">

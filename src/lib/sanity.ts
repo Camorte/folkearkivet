@@ -116,7 +116,7 @@ export async function getSpecialCategories() {
 
 export async function getLandingPage(): Promise<LandingPage> {
 	return client.fetch(
-		`*[_type == "map"][0]{content[]{title, location{lat, lng}, year, detail, contributionRef->{_id, title}}, biography, contact}`,
+		`*[_type == "map"][0]{description, mapTitle, content[]{title, location{lat, lng}, year, detail, contributionRef->{_id, title}}, biography, contact}`,
 	);
 }
 
