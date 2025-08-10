@@ -1,11 +1,29 @@
 import { SanityImageAssetDocument } from "@sanity/client";
 import { PortableTextBlock } from "@portabletext/types";
 
+export type SanityImageWithMetadata = {
+	asset: {
+		url: string;
+		metadata: {
+			lqip: string;
+			dimensions: {
+				width: number;
+				height: number;
+			};
+		};
+	};
+};
+
 export type ContributionOverview = {
 	_id: string;
 	title: string;
 	image: SanityImageAssetDocument;
 	categoryRef?: {
+		_id: string;
+		name: string;
+		image: SanityImageAssetDocument;
+	};
+	specialCategoryRef?: {
 		_id: string;
 		name: string;
 		image: SanityImageAssetDocument;
@@ -71,3 +89,22 @@ export type Event = {
 	eventSlug: SanitySlug;
 	content: PortableTextBlock;
 };
+
+export type CategoryStructure = {
+	mainCategory?: {
+		_id: string;
+		name: string;
+		image: SanityImageWithMetadata;
+	};
+	otherCategories: {
+		_id: string;
+		name: string;
+		image: SanityImageWithMetadata;
+	}[];
+};
+
+export type SpecialCategoryStructure = {
+	_id: string;
+	name: string;
+	image: SanityImageWithMetadata;
+}[];

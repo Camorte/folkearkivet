@@ -1,42 +1,33 @@
 import Layout from "../components/Layout.tsx";
 import { useEffect, useState } from "react";
-import { getContributions, getCategories, urlFor } from "../lib/sanity.ts";
-import { ContributionOverview } from "../lib/types.ts";
+import { getContributions, getCategories, urlFor, getSpecialCategories } from "../lib/sanity.ts";
+import { ContributionOverview, CategoryStructure, SpecialCategoryStructure } from "../lib/types.ts";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 import CategoryButton from "../components/CategoryButton.tsx";
 
-interface Category {
-	_id: string;
-	name: string;
-	image: {
-		asset: {
-			url: string;
-			metadata: {
-				lqip: string;
-				dimensions: {
-					width: number;
-					height: number;
-				};
-			};
-		};
-	};
-}
-
 const Archive = () => {
 	const [archive, setArchive] = useState<ContributionOverview[]>([]);
 	const [allContributions, setAllContributions] = useState<ContributionOverview[]>([]);
-	const [categories, setCategories] = useState<Category[]>([]);
+	const [categoryStructure, setCategoryStructure] = useState<CategoryStructure | null>(null);
+	const [specialCategoryStructure, setSpecialCategoryStructure] = useState<SpecialCategoryStructure | null>(null);
 	const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
 	const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
 
 	useEffect(() => {
-		Promise.all([getContributions(), getCategories()])
-			.then(([contributionsData, categoriesData]: [ContributionOverview[], Category[]]) => {
-				setAllContributions(contributionsData);
-				setArchive(contributionsData);
-				setCategories(categoriesData);
-			})
+		Promise.all([getContributions(), getCategories(), getSpecialCategories()])
+			.then(
+				([contributionsData, categoriesData, specialCategoriesData]: [
+					ContributionOverview[],
+					CategoryStructure,
+					SpecialCategoryStructure,
+				]) => {
+					setAllContributions(contributionsData);
+					setArchive(contributionsData);
+					setCategoryStructure(categoriesData);
+					setSpecialCategoryStructure(specialCategoriesData);
+				},
+			)
 			.catch((error) => {
 				console.log(error);
 			});
@@ -48,7 +39,10 @@ const Archive = () => {
 		if (categoryId === null) {
 			setArchive(allContributions);
 		} else {
-			const filtered = allContributions.filter((contribution) => contribution.categoryRef?._id === categoryId);
+			const filtered = allContributions.filter(
+				(contribution) =>
+					contribution.categoryRef?._id === categoryId || contribution.specialCategoryRef?._id === categoryId,
+			);
 			setArchive(filtered);
 		}
 	};
@@ -56,30 +50,41 @@ const Archive = () => {
 	return (
 		<Layout>
 			<div className="mb-8">
-				<div className="overflow-x-auto">
-					<div className="flex gap-4 pb-4 min-w-max">
-						<button
-							onClick={() => handleCategoryFilter(null)}
-							className={classNames(
-								"px-4 py-2 rounded-lg border-2 transition-all duration-200 hover:shadow-md whitespace-nowrap",
-								{
-									"border-blue-500 bg-blue-50 text-blue-700": selectedCategory === null,
-									"border-gray-200 bg-white text-gray-700 hover:border-gray-300": selectedCategory !== null,
-								},
-							)}
-						>
-							Alle kategorier
-						</button>
-						{categories.map((category) => (
+				{categoryStructure && (
+					<div className="flex flex-row overflow-x-auto gap-4 mb-4 min-w-max items-center ">
+						{categoryStructure.mainCategory && (
+							<CategoryButton
+								name={categoryStructure.mainCategory.name}
+								image={categoryStructure.mainCategory.image}
+								isActive={selectedCategory === null}
+								onClick={() => handleCategoryFilter(null)}
+							/>
+						)}
+						{categoryStructure.otherCategories.map((category) => (
 							<CategoryButton
 								key={category._id}
-								category={category}
+								name={category.name}
+								image={category.image}
 								isActive={selectedCategory === category._id}
 								onClick={() => handleCategoryFilter(category._id)}
 							/>
 						))}
 					</div>
-				</div>
+				)}
+				{specialCategoryStructure && (
+					<div className="flex flex-row items-center justify-center min-w-max gap-4 overflow-x-auto">
+						{specialCategoryStructure.map((specialCategory) => (
+							<CategoryButton
+								key={specialCategory._id}
+								name={specialCategory.name}
+								image={specialCategory.image}
+								isActive={selectedCategory === specialCategory._id}
+								onClick={() => handleCategoryFilter(specialCategory._id)}
+								type="special"
+							/>
+						))}
+					</div>
+				)}
 			</div>
 			<ul className="photo-gallery">
 				{archive.map((contribution, index) => (

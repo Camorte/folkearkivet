@@ -22,7 +22,7 @@ export async function getContributions() {
       },
       url
     }
-  }, title, categoryRef->{_id, name, image} }`);
+  }, title, categoryRef->{_id, name, image}, specialCategoryRef->{_id, name, image} }`);
 }
 
 export async function getContribution(id: string) {
@@ -54,18 +54,64 @@ export async function getArticle(articleSlug: string) {
 }
 
 export async function getCategories() {
-	return await client.fetch(`*[_type == "category"]{_id, image {
-    asset->{
-      metadata {
-        lqip,
-        dimensions {
-          width,
-          height
-        }
-      },
-      url
-    }
-  }, name }`);
+	const [mainCategory, otherCategories] = await Promise.all([
+		client.fetch(`*[_type == "mainCategory"][0]{
+			_id,
+			name,
+			image {
+				asset->{
+					metadata {
+						lqip,
+						dimensions {
+							width,
+							height
+						}
+					},
+					url
+				}
+			}
+		}`),
+		client.fetch(`*[_type == "category"]{
+			_id,
+			name,
+			image {
+				asset->{
+					metadata {
+						lqip,
+						dimensions {
+							width,
+							height
+						}
+					},
+					url
+				}
+			}
+		}`),
+	]);
+
+	return {
+		mainCategory,
+		otherCategories,
+	};
+}
+
+export async function getSpecialCategories() {
+	return await client.fetch(`*[_type == "specialCategory"]{
+			_id,
+			name,
+			image {
+				asset->{
+					metadata {
+						lqip,
+						dimensions {
+							width,
+							height
+						}
+					},
+					url
+				}
+			}
+		}`);
 }
 
 export async function getLandingPage(): Promise<LandingPage> {
