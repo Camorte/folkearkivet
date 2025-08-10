@@ -7,6 +7,18 @@ export const map = defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'description',
+      title: 'Beskrivelse',
+      type: 'text',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
+      name: 'mapTitle',
+      title: 'Kart tittel',
+      type: 'string',
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'content',
       title: 'Innhold',
       type: 'mapPointArray', // Now references your custom array type
