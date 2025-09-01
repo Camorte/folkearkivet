@@ -49,9 +49,9 @@ const Archive = () => {
 
 	return (
 		<Layout>
-			<div className="mb-8">
+			<div className="mb-8 overflow-hidden">
 				{categoryStructure && (
-					<div className="flex flex-row overflow-x-auto gap-4 mb-4 min-w-max items-center ">
+					<div className="flex flex-row overflow-x-auto gap-4 mb-4 w-full items-center">
 						{categoryStructure.mainCategory && (
 							<CategoryButton
 								name={categoryStructure.mainCategory.name}
