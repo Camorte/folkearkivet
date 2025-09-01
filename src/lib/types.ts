@@ -18,16 +18,16 @@ export type ContributionOverview = {
 	_id: string;
 	title: string;
 	image: SanityImageAssetDocument;
-	categoryRef?: {
+	categoryRef: {
 		_id: string;
 		name: string;
 		image: SanityImageAssetDocument;
-	};
+	} | null;
 	specialCategoryRef?: {
 		_id: string;
 		name: string;
 		image: SanityImageAssetDocument;
-	};
+	} | null;
 };
 
 export type Contribution = {

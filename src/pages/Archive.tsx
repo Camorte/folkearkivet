@@ -35,9 +35,11 @@ const Archive = () => {
 
 	const handleCategoryFilter = (categoryId: string | null) => {
 		setSelectedCategory(categoryId);
-		console.log(categoryId);
 		if (categoryId === null) {
-			setArchive(allContributions);
+			const mainCategoryContributions = allContributions.filter(
+				(contribution) => contribution.specialCategoryRef === null,
+			);
+			setArchive(mainCategoryContributions);
 		} else {
 			const filtered = allContributions.filter(
 				(contribution) =>
