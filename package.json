@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@eslint/js": "^9.31.0",
+    "@eslint/js": "^9.36.0",
     "@portabletext/react": "^3.2.1",
     "@portabletext/types": "^2.0.13",
     "@sanity/client": "^6.18.0",
