@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 body {
     margin: 0;
@@ -37,7 +37,7 @@ code {
     }
 
     p {
-        @apply text-base my-2 font-[300] w-fit;
+        @apply text-base my-2 font-light w-fit;
     }
 }
 
