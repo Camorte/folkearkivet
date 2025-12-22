@@ -35,7 +35,7 @@ const Contribution = () => {
 								/>
 							</div>
 							<div className="flex flex-col w-full md:fixed md:bottom-0 md:right-0 md:py-8 md:pr-[7vw] md:max-w-[34%] ">
-								<h2 className="mt-0 w-full break-words">{contribution.title}</h2>
+								<h2 className="mt-0 w-full wrap-break-word">{contribution.title}</h2>
 								<p className="text-lg italic">
 									{contribution.location}, {contribution.category}
 								</p>

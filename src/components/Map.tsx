@@ -11,7 +11,7 @@ const ICON = icon({
 
 const Map = ({ content }: { content: MapPoint[] }) => {
 	return (
-		<MapContainer center={[64.573, 11.528]} zoom={5} className="h-[450px] md:h-[650px] z-[8]">
+		<MapContainer center={[64.573, 11.528]} zoom={5} className="h-[450px] md:h-[650px] z-8">
 			<TileLayer
 				attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

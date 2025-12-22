@@ -18,7 +18,7 @@ const CategoryButton = ({ name, image, isActive, onClick, type = "default" }: Ca
 		<button
 			onClick={onClick}
 			className={
-				"grow-1 shrink-0 flex flex-col items-center p-4 rounded-lg transition-all duration-200 hover:shadow-md"
+				"grow shrink-0 flex flex-col items-center p-4 rounded-lg transition-all duration-200 hover:shadow-md"
 			}
 		>
 			{image && (
