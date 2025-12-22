@@ -41,13 +41,15 @@ code {
     }
 }
 
-@layer components {
-    .container {
-        @apply py-[2vh] px-[5vw] md:py-[3vh] md:px-[7vw] flex flex-col max-w-full w-full overflow-y-auto;
-    }
 
+
+@layer components {
     .landing-container {
         @apply px-[10vw] md:px-[25vw]
+    }
+
+    .container {
+        @apply py-[2vh] px-[5vw] md:py-[3vh] md:px-[7vw] flex flex-col w-full max-w-full! overflow-y-auto;
     }
 }
 
