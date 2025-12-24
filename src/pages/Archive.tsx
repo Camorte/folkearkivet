@@ -74,7 +74,7 @@ const Archive = () => {
 					</div>
 				)}
 				{specialCategoryStructure && (
-					<div className="flex flex-row items-center justify-center min-w-max gap-4 overflow-x-auto">
+					<div className="md:px-48 flex flex-row overflow-x-auto gap-4 w-full items-center">
 						{specialCategoryStructure.map((specialCategory) => (
 							<CategoryButton
 								key={specialCategory._id}
